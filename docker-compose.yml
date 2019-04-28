@@ -1,0 +1,35 @@
+version: '3.4'
+services:
+  es-sql:
+    image: sunnywalden/elasticsearch-with-sql:v0.1.5
+    ports:
+      - 9502:9200
+      - 9503:9300
+      - 9508:8080
+#    networks:
+#      - tezign
+    volumes:
+#      - /data/es_search_v5_with_sql/config:/usr/share/elasticsearch/config
+      - /data/es_search_v5_with_sql/logs:/usr/share/elasticsearch/logs
+#      - /data/es_search_v5_with_sql/plugins:/usr/share/elasticsearch/plugins
+      - /data/es_search_v5_with_sql/data:/usr/share/elasticsearch/data
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - TZ="Asia/Shanghai"
+      - bootstrap.memory_lock=true
+      - xpack.security.enabled=false
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    stop_grace_period: 30s
+#    healthcheck:
+#      test: 'curl 127.0.0.1:9200 || exit 1'
+#      interval: 5s
+#      timeout: 5s
+#      retries: 3
+#      start_period: 30s
+
+#networks:
+#  tezign:
+#    external: true
