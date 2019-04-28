@@ -6,12 +6,12 @@ services:
       - 9502:9200
       - 9503:9300
       - 9508:8080
-#    networks:
-#      - tezign
+    networks:
+      - es
     volumes:
-#      - /data/es_search_v5_with_sql/config:/usr/share/elasticsearch/config
+      - /data/es_search_v5_with_sql/config:/usr/share/elasticsearch/config
       - /data/es_search_v5_with_sql/logs:/usr/share/elasticsearch/logs
-#      - /data/es_search_v5_with_sql/plugins:/usr/share/elasticsearch/plugins
+      - /data/es_search_v5_with_sql/plugins:/usr/share/elasticsearch/plugins
       - /data/es_search_v5_with_sql/data:/usr/share/elasticsearch/data
     environment:
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
@@ -23,13 +23,13 @@ services:
         soft: -1
         hard: -1
     stop_grace_period: 30s
-#    healthcheck:
-#      test: 'curl 127.0.0.1:9200 || exit 1'
-#      interval: 5s
-#      timeout: 5s
-#      retries: 3
-#      start_period: 30s
+    healthcheck:
+      test: 'curl 127.0.0.1:9200 || exit 1'
+      interval: 5s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
 
-#networks:
-#  tezign:
+networks:
+  es:
 #    external: true
