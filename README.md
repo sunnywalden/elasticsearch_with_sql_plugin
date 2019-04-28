@@ -6,9 +6,8 @@
 wget --no-check-certificate https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-x64.tar.xz -o /tmp/node-v10.15.3-linux-x64.tar.xz
 tar -jxvf /tmp/node-v10.15.3-linux-x64.tar.xz -C .
 
-wget --no-check-certificate https://github.com/NLPchina/elasticsearch-sql/releases/download/5.6.13.0/elasticsearch-sql-5.6.13.0.zip -o /tmp/elasticsearch-sql-5.6.13.0.zip
-
-unzip /tmp/elasticsearch-sql-5.6.13.0.zip -d .
+wget --no-check-certificate https://github.com/NLPchina/elasticsearch-sql/releases/download/5.6.4.0/elasticsearch-sql-5.6.4.0.zip -o /tmp/elasticsearch-sql-5.6.4.0.zip
+unzip /tmp/elasticsearch-sql-5.6.4.0.zip -d .
 
 
 #### build your own image
