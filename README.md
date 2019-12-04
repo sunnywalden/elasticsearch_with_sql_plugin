@@ -1,5 +1,7 @@
 # elasticsearch_with_sql_plugin
 
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](http://github.com/hhyo/archery/blob/master/LICENSE)
+
 ## build image by your self
 
 #### download node and es-sql plugin package first
